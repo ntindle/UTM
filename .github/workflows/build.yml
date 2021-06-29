@@ -138,7 +138,7 @@ jobs:
         run: xcodebuild -project UTM.xcodeproj/ -list
 
       - name: Test with XCode
-        run: xcodebuild -project UTM.xcodeproj/ -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 8' clean build test
+        run: xcodebuild -project UTM.xcodeproj/ -scheme 'iOS-TCI' -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 8' clean build test
 
       #- name: GitHub Script
       #  uses: actions/github-script@v4.0.2
