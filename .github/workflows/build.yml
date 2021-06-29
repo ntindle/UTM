@@ -134,7 +134,7 @@ jobs:
         with:
           name: UTM-ios_simulator-tci-x86_64
       - name: Test with XCode
-        uses: mxcl/xcodebuild@v1
+        run: xcodebuild -project UTM.xcodeproj/ -scheme UTM_SEUITests -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 8' clean build test
 
       #- name: GitHub Script
       #  uses: actions/github-script@v4.0.2
