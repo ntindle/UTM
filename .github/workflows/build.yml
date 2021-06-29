@@ -123,7 +123,7 @@ jobs:
           
   # Testing
   test:
-    name: Test UTM MacOS
+    name: Test UTM SE
     needs: build
     runs-on: macos-10.15
     steps:
