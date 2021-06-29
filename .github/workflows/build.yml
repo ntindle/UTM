@@ -72,7 +72,7 @@ jobs:
           ./scripts/build_utm.sh -p ${{ matrix.platform }} -a ${{ matrix.arch }} -o UTM
           tar cf UTM.xcarchive.tgz UTM.xcarchive
       - name: Test with XCode
-        if: (${{matrix.platform}} == "ios_simulator-tci" && ${{matrix.arch}} == "x86_64")
+        if: ${{matrix.platform}} == "ios_simulator-tci" && ${{matrix.arch}} == "x86_64"
         run: xcodebuild -project UTM.xcodeproj/ -scheme 'iOS-TCI' -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 8' clean build test
       - name: Upload UTM
         uses: actions/upload-artifact@v2
