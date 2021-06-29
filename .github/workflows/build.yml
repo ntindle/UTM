@@ -132,6 +132,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Setup Xcode
+        shell: bash
+        run: sudo xcode-select -switch /Applications/Xcode_12.4.app
+      - name: Setup Path
+        shell: bash
+        run: |
+          echo "/usr/local/opt/gettext/bin" >> $GITHUB_PATH
+          echo "/usr/local/opt/bison/bin" >> $GITHUB_PATH
       - name: Download Artifact
         uses: actions/download-artifact@v2
         with:
