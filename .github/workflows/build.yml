@@ -137,6 +137,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
          name: Sysroot-ios_simulator-tci-x86_64
+      - name: Unpack Sysroot
+        run: tar zxvf sysroot.tgz
 
       - name: List with XCode
         run: xcodebuild -project UTM.xcodeproj/ -list
