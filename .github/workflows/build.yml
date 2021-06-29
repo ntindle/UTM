@@ -133,7 +133,8 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: UTM-ios_simulator-tci-x86_64
-      - use: mxcl/xcodebuild@v1
+      - name: Test with XCode
+        uses: mxcl/xcodebuild@v1
 
       #- name: GitHub Script
       #  uses: actions/github-script@v4.0.2
