@@ -136,7 +136,7 @@ jobs:
       - name: GitHub Script
         uses: actions/github-script@v4.0.2
         with:
-          script: xcodebuild -project UTM.xcodeproj/ -scheme UTM_SEUITests -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 8' clean build test CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+          script: "xcodebuild -project UTM.xcodeproj/ -scheme UTM_SEUITests -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 8' clean build test"
   package-ipa:
     name: Package (iOS IPA)
     runs-on: macos-10.15
