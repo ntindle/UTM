@@ -133,6 +133,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: UTM-ios_simulator-tci-x86_64
+      - name: Download Sysroot
+        uses: actions/download-artifact@v2
+        with:
+         name: Sysroot-ios_simulator-tci-x86_64
 
       - name: List with XCode
         run: xcodebuild -project UTM.xcodeproj/ -list
