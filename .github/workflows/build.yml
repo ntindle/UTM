@@ -157,7 +157,14 @@ jobs:
         run: xcodebuild -project UTM.xcodeproj/ -list
 
       - name: Test with XCode
-        run: xcodebuild -project UTM.xcodeproj/ -scheme 'iOS-TCI' -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 8' clean build test CODE_SIGNING_ALLOWED=NO
+        run: xcodebuild -project UTM.xcodeproj/ -scheme 'iOS-TCI' -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 8'  -resultBundlePath TestResults clean build test CODE_SIGNING_ALLOWED=NO 
+      
+      - name: Test results
+        uses: tbartelmess/analyze-xcoderesults-action@0.1.0
+        if: always()
+        with:
+          results: TestResults.xcresult
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       #- name: GitHub Script
       #  uses: actions/github-script@v4.0.2
