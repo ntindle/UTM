@@ -159,8 +159,15 @@ jobs:
       - name: Test with XCode
         run: xcodebuild -project UTM.xcodeproj/ -scheme 'iOS-TCI' -destination 'platform=iOS Simulator,OS=14.4,name=iPhone 8'  -resultBundlePath TestResults clean build test CODE_SIGNING_ALLOWED=NO 
       
+      - name: Compress Test Results
+        run: tar cf TestResults.tgz TestResults*
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v2
+        with:
+          name: TestResults
+          path: TestResults.tgz
       - name: Test results
-        uses: tbartelmess/analyze-xcoderesults-action@0.1.0
+        uses: tbartelmess/analyze-xcoderesults-action@0.1.1
         if: always()
         with:
           results: TestResults.xcresult
